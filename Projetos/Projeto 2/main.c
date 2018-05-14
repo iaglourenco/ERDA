@@ -9,11 +9,19 @@ int main(int argc,char *argv[]){
   argv[0] = "./prog"
   argv[1] = -nNUMERO
 */
-
 if(!argv[1]){
   printf("ERRO - PARAMETROS INSUFICIENTES\n");
   exit(-1);
 }
+
+NO *raiz;
+
+criaVazia(&raiz);
+
+
+
+
+
 
 
 

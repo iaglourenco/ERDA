@@ -14,3 +14,15 @@ struct no{
 void criaVazia(NO **raiz){
   (*raiz) = NULL;
 }
+
+int verificaExistencia(NO *raiz,char palavra[]){
+//verifica a existencia da palavra na arvore
+
+
+
+}
+
+
+
+
+}

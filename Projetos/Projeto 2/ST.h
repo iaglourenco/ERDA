@@ -3,7 +3,7 @@
 typedef struct no NO;
 
 void criaVazia(NO **raiz);
-
+int verificaExistencia(NO *raiz,char palavra[]);
 
 
 
