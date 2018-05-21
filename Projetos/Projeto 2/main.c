@@ -1,6 +1,6 @@
 /*
 Integrante 1 - Nome:Iago Jardim Lourenço RA: 15610116
-Integrante 2 - Nome:Bruno Camilo Silvério RA: __________
+Integrante 2 - Nome:Bruno Camilo Silvério RA: 16080293
 
 Resultados obtidos: ____________________________________________________
 Projeto básico: _____ % concluído - Obs: ___________________________________
@@ -11,6 +11,7 @@ Projeto básico: _____ % concluído - Obs: ___________________________________
 */
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "ST.h"
 #include "Item.h"
 

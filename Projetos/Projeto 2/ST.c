@@ -2,8 +2,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "ST.h"
+#include "Item.h"
 
-struct no{
+struct tno{
 
   char palavra[50];
   int count;
@@ -17,11 +18,8 @@ void criaVazia(NO **raiz){
 int inserir(NO **raiz,char palavra[]){
 //insere palavra na arvore, retorna 1 se OK, 0 se não
   if(!(*raiz)){
-    (*raiz) = (NO *) malloc(sizeof(NO));
 
-    if(!(*raiz)) return 0; //Heap Overflow
-
-    if(addItem(&(*raiz),palavra))
+    if(addNovoItem(&(*raiz),palavra))
       return 1; //OK
     else
       return 0;//ERRO
@@ -29,10 +27,8 @@ int inserir(NO **raiz,char palavra[]){
 
   if(strcmp((*raiz)->palavra,palavra)==0)//iguais
   {
-    if(incrementaFreq(&(*raiz)))//frequencia++
-      return 1;//OK
-    else
-      return 0;//ERRO
+    incrementaFreq(&(*raiz));//frequencia++
+
   }
   if(strcmp((*raiz)->palavra,palavra)<0)//vou pra esq
     return inserir(&(*raiz)->esq,palavra);
