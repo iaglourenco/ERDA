@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include "ST.h"
 
-
 struct no{
 
   char palavra[50];
@@ -22,16 +21,18 @@ int inserir(NO **raiz,char palavra[]){
 
     if(!(*raiz)) return 0; //Heap Overflow
 
-    strcpy((*raiz)->palavra,palavra);
-    (*raiz)->count=1;
-    (*raiz)->esq = (*raiz)->dir = NULL;
-    return 1; //OK
+    if(addItem(&(*raiz),palavra))
+      return 1; //OK
+    else
+      return 0;//ERRO
   }
 
   if(strcmp((*raiz)->palavra,palavra)==0)//iguais
   {
-    (*raiz)->count++;//incrementa 1
-    return 1;//OK
+    if(incrementaFreq(&(*raiz)))//frequencia++
+      return 1;//OK
+    else
+      return 0;//ERRO
   }
   if(strcmp((*raiz)->palavra,palavra)<0)//vou pra esq
     return inserir(&(*raiz)->esq,palavra);
@@ -49,10 +50,5 @@ int verificaExistencia(NO *raiz,char palavra[]){
   if(strcmp(raiz->palavra,palavra) == 0)  return 1;//achei a palavra
 
 return verificaExistencia(raiz->esq,palavra) || verificaExistencia(raiz->dir,palavra);//verifica a arvore inteira
-
-}
-
-
-
 
 }
