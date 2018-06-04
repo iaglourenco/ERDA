@@ -18,7 +18,7 @@ Projeto básico: 100 % concluído - Obs: ____________________________________
 
 int main(int argc, char *argv[])
 {
-	int nPalavra = 0, tamN = 0, i = 2, j = 0, k = 0, nivel = 1, numero = 0, aux = 0;
+	int nPalavra = 0, tamN = 0, i = 2, j = 0, k = 0, nivel = 1, numbuscaPalavraero = 0, aux = 0;
 	struct timeval  inicio;
 
 	char num[50], palavra[50], ch, op, narquivo[50],tipo , tipo2;
@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
 		tamN = atoi(num);
 
 		scanf("%c", &ch);
-		while(!feof(stdin))//vai retirando os charcters do buffer e formando as palavras
+		while(!feof(stdin))//vai retirando os caracteres do buffer e formando as palavras
 		{
 			if((ch > 64 && ch <91) || (ch >96 && ch < 123))
 			{

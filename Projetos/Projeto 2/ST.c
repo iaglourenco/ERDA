@@ -13,7 +13,7 @@ struct Freq //struct para as matrizes, com nomes , dimensoes e valores---
 	freq *prox;
 };
 
-void criaLista(freq **pFreq)//cria lista ligada freq 
+void criaLista(freq **pFreq)//cria lista ligada freq
 {
 	*pFreq = NULL;
 }
@@ -31,7 +31,7 @@ void insereArvore(Arv **pArv, char palavra[])//insere na arvore as informacoes p
 		(*pArv)->Item =alocaItem(palavra);
 		(*pArv)->esq = NULL;
 		(*pArv)->dir = NULL;
-		
+
 	}
 	else if(comparaItem((*pArv)->Item, palavra) == 0)
 	{
@@ -74,7 +74,7 @@ void insereLista (freq **pFreq, char palavra[])
 		else
 		{
 			*pFreq = insere;
-		}	
+		}
 }
 
 
@@ -92,7 +92,7 @@ void maisFrequente(freq **Freq)//ordena a lista ligada de acorda com a frequenci
 			while(aux2)
 			{
 				if(aux4->frequencia < aux2->frequencia)//verifica se a palavra atual tem menor frequencia que a anterior se sim troca de posicao e continua comparando ate o fim da lista
-				{	
+				{
 					aux3->frequencia = aux4->frequencia;
 					aux4->frequencia = aux2->frequencia;
 					aux2->frequencia = aux3->frequencia;
@@ -103,9 +103,9 @@ void maisFrequente(freq **Freq)//ordena a lista ligada de acorda com a frequenci
 				else
 				{
 					if(aux4->frequencia == aux2->frequencia)//caso a frequencia de ambas as palavras sejam iguais ele compara se ela procede ou nao gramaticalmente a proxima palavra, se nao se mantem
-					{	
+					{
 						if(strcmp(aux4->chave, aux2->chave) > 0)
-						{	
+						{
 							aux3->frequencia = aux4->frequencia;
 							aux4->frequencia = aux2->frequencia;
 							aux2->frequencia = aux3->frequencia;
@@ -121,7 +121,7 @@ void maisFrequente(freq **Freq)//ordena a lista ligada de acorda com a frequenci
 			aux = aux->prox;
 		}
 	}
-	
+
 }
 
 void printfF(freq *Freq , int n)//printa a frequencia das palavras mais frequentes e sua respectiva palavra
@@ -130,12 +130,12 @@ void printfF(freq *Freq , int n)//printa a frequencia das palavras mais frequent
 	freq *aux;
 	aux = Freq;
 	while(Freq && (i != n))//printa a frequencia e o codigo das palavras
-	{	
+	{
 		printf("%i %s\n",Freq->frequencia ,Freq->chave);
 		Freq = Freq->prox;
 		i++;
-	}	
-	
+	}
+
 }
 
 void buscaPalavra(Arv *Arv, char palavra[], int nivel, struct timeval  inicio)
@@ -149,7 +149,7 @@ void buscaPalavra(Arv *Arv, char palavra[], int nivel, struct timeval  inicio)
 	{
 		gettimeofday(&fim,NULL);
 		printItem(Arv->Item,1);
-		printf("%i %lf\n", nivel,(double)(fim.tv_sec - inicio.tv_sec)/1000000);
+		printf("%i %.0lf\n", nivel,(double)(fim.tv_usec - inicio.tv_usec));
 	}
 	else if(comparaItem(Arv->Item, palavra) == -1)
 	{
@@ -164,14 +164,14 @@ void buscaPalavra(Arv *Arv, char palavra[], int nivel, struct timeval  inicio)
 void printArvore(Arv *Arv, int Max, int aux)// printa a arvores no formato pedido
 {
 	int i = 0;
-	
+
 		if((Max + 1) == aux) return;//caso a arvore binaria chegue no nivel maximo passado pelo usuario o programa retorna pra main
 		if(aux == 1)
 		{
-			if(Arv != NULL)  printItem(Arv->Item,2); 
+			if(Arv != NULL)  printItem(Arv->Item,2);
 		}
 		else
-	  	{  
+	  	{
 			if(aux != 2)
 			{
 				printf("|");
@@ -183,9 +183,9 @@ void printArvore(Arv *Arv, int Max, int aux)// printa a arvores no formato pedid
 			printf("|");
 			printf("-");
 			if(Arv != NULL) printItem(Arv->Item,2);
-		}	
+		}
 	if(Arv != NULL) //percorre a arvore binaria
-	{	
+	{
 		printArvore(Arv->esq,Max,aux + 1);         /* imprime no esquerdo */
 		printArvore(Arv->dir,Max, aux + 1);         /* imprime no direito */
 	}
@@ -201,5 +201,5 @@ void salvaTabela(Arv *Arv, FILE **arquivo)
 		salvaItem(Arv->Item, &(*arquivo));
 		salvaTabela(Arv->esq, &(*arquivo));
 		salvaTabela(Arv->dir, &(*arquivo));
-	}	
+	}
 }
